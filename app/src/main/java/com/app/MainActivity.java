@@ -62,10 +62,8 @@ public class MainActivity extends AppCompatActivity {
                 .setOnClickListener(
                         new View.OnClickListener() {
                             public void onClick(View v) {
-                                Toast.makeText(mCtx, "Button LOGIN Clicked", Toast.LENGTH_LONG).show();
-                                String nivel = Util.getNivelBateria(mCtx);
-                                EditText campo = (EditText) findViewById(R.id.etUSR);
-                                campo.setText(nivel);
+                                int nivel = Util.getNivelBateria(mCtx);
+                                Toast.makeText(mCtx, "Batería: " + nivel + "%", Toast.LENGTH_LONG).show();
                             }
                         }
                 );

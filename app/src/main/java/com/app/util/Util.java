@@ -3,11 +3,13 @@ package com.app.util;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.location.LocationManager;
+import android.os.BatteryManager;
 import android.provider.Settings;
 import android.util.Base64;
 import android.util.DisplayMetrics;
@@ -301,14 +303,17 @@ public final class Util {
 		}
 		return null;
 	}
-	public static String getNivelBateria(Context ctx) {
-		int level = atm_getGlobalPropertyNum(ctx, KEY_Bat_level);
-		int scale = atm_getGlobalPropertyNum(ctx, KEY_Bat_scale);
-		float batteryPct = -1;
-		if ( scale != 0 ) {
-			batteryPct = level / (float)scale;
-		}
-		return Float.toString(batteryPct);
+	public static int getNivelBateria(Context ctx) {
+
+		IntentFilter iFilter = new IntentFilter(Intent.ACTION_BATTERY_CHANGED);
+		Intent batteryStatus = ctx.registerReceiver(null, iFilter);
+
+		int level = batteryStatus != null ? batteryStatus.getIntExtra(BatteryManager.EXTRA_LEVEL, -1) : -1;
+		int scale = batteryStatus != null ? batteryStatus.getIntExtra(BatteryManager.EXTRA_SCALE, -1) : -1;
+
+		float batteryPct = level / (float) scale;
+
+		return (int) (batteryPct * 100.0);
 	}
 
 	public static boolean decodeB64ToImageView(String b64_encodedImage, ImageView inOut_iv) {
