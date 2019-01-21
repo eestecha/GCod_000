@@ -32,7 +32,7 @@ public final class K {
 	public static final int MSG_ACEPTAR					= K_BASE + 0x00000011;
 	public static final int MSG_CANCELAR				= K_BASE + 0x00000012;
     
-    public static final String NODATA 					= "Sin datos";
+    public static final String NODATA 					= "Sin datos a mostrar";
 
 	public static final boolean IS_PANTALLAS_NO_ATRAS	= false;
 	public static final boolean IS_PANTALLAS_GIRAR 		= true;
