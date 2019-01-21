@@ -229,7 +229,7 @@ public class PS_countries_EDTRCD extends Activity {
 		mEt_json.setText( mDBHelper.ps_countries.mRegistro.json );	// json
 
 		mBCK_flag_base64 = mDBHelper.ps_countries.mRegistro.flag_base64;
-		
+
 		// Se autoselecciona contenido del campo con el focus:
 		if (mEt_sincro.isFocused()) { mEt_sincro.selectAll(); }	// sincro
 		if (mEt_mark.isFocused()) { mEt_mark.selectAll(); }	// mark
