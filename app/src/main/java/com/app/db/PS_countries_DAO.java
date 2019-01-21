@@ -709,7 +709,7 @@ public class PS_countries_DAO {
 
 		// Normalmente es la Primary Key, pero no necesariamente:
 		String orderBy = 
-			  " country_id ASC"	// country_id
+			  " name ASC"	// name
 			;
 
 		mCursor = db.query(DATABASE_TABLE, mColNombres, selection, null, null, null, orderBy);
