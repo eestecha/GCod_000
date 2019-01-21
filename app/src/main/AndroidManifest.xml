@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.app">
+
+    <uses-permission android:name="android.permission.ACCESS_GPS" />
+    <uses-permission android:name="android.permission.ACCESS_ASSISTED_GPS" />
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!--<uses-permission android:name="android.permission.WRITE_MEDIA_STORAGE"/>-->
+
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <!--<uses-permission android:name="android.permission.STATUS_BAR" />-->
+
+    <!-- Para BroadcastReceiver del teléfono -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- Por si se necesitara, para MIRAR EN EL REGISTRO DE LLAMADAS mediante Content Provider (Ver fuente del BroadcastReceiver) -->
+    <!-- <uses-permission android:name="android.permission.CALL_PHONE" />  -->
+    <!-- <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" /> -->
+
+    <!-- Para pantalla siempre encendida: mWakeLock.acquire() / mWakeLock.release(); -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".PS_countries_ADDRCD"
+            android:configChanges="orientation" />
+        <activity
+            android:name=".PS_countries_DSPFIL"
+            android:configChanges="orientation" />
+        <activity
+            android:name=".PS_countries_EDTRCD"
+            android:configChanges="orientation" />
+        <activity
+            android:name=".US_Users_ADDRCD"
+            android:configChanges="orientation" />
+        <activity
+            android:name=".US_Users_DSPFIL"
+            android:configChanges="orientation" />
+        <activity
+            android:name=".US_Users_EDTRCD"
+            android:configChanges="orientation" />
+
+    </application>
+
+</manifest>

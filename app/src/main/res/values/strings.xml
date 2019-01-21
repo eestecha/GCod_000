@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">No borrar este string.</string>
+    <string name="app_name">Creado por auto-destripador.</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="aceptar">Aceptar</string>
+    <string name="indefinido">&#8230;</string>
+
+</resources>
