@@ -194,7 +194,7 @@ public class PS_countries_ADDRCD extends Activity {
 
 	private void cargarPantalla() {
 		Log.i(TAG,"cargarPantalla()");
-		mTv_titulo.setText( "Agregar countries" );
+		mTv_titulo.setText( "Agregar país" );
 		K.LeftToRight_Animation(mViewLayout,350);
 	}
 

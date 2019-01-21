@@ -283,7 +283,7 @@ public class PS_countries_DSPFIL extends AppCompatActivity {
 	private void cargarPantalla() {
 		Log.i(TAG,"cargarPantalla()");
 
-		mTv_titulo.setText( "countries" );
+		mTv_titulo.setText( "Países" );
 		
 		if ( mLstAdpt != null) mLv_lista.setAdapter(mLstAdpt);
 

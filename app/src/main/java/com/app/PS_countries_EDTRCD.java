@@ -213,7 +213,7 @@ public class PS_countries_EDTRCD extends Activity {
 
 	private void cargarPantalla() {
 		Log.i(TAG,"cargarPantalla()");
-		mTv_titulo.setText( "Editar countries" );
+		mTv_titulo.setText( "Editar país" );
 		K.LeftToRight_Animation(mViewLayout,350);
 
 		// Mover campos desde la base de datos:
