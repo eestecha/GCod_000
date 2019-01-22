@@ -318,15 +318,24 @@ public final class Util {
 
 	public static boolean decodeB64ToImageView(String b64_encodedImage, ImageView inOut_iv) {
 		boolean b = false;
+
+		Bitmap bm = decodeB64ToBitmap(b64_encodedImage);
+		if ( bm != null ) {
+			inOut_iv.setImageBitmap( bm );
+			b = true;
+		}
+
+		return b;
+	}
+	public static Bitmap decodeB64ToBitmap(String b64_encodedImage) {
+		Bitmap decodedByte = null;
 		try {
 			byte[] decodedString = Base64.decode(b64_encodedImage.getBytes(), Base64.DEFAULT);
-			Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
-			inOut_iv.setImageBitmap(decodedByte);
-			b = true;
+			decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return b;
+		return decodedByte;
 	}
 
 	public static DisplayMetrics pantalla_getMetrics(Context ctx ) {

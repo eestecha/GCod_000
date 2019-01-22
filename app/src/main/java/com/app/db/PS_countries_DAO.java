@@ -19,6 +19,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.Log;
 
+import com.app.adapter.PS_Adapter_grid;
 import com.app.util.HttpRestClient;
 import com.app.adapter.PS_Adapter;
 
@@ -35,7 +36,8 @@ public class PS_countries_DAO {
 	public ArrayList<Registro> 	mRegistros;
 	public Cursor 				mCursor;
 
-	private PS_Adapter mAdpt;
+	private PS_Adapter 			mAdpt;
+	private PS_Adapter_grid 	mAdpt_grid;
 
 	// Resultados de operaciones http:
 	public int 		mHttp_RC;		
@@ -248,7 +250,18 @@ public class PS_countries_DAO {
 		///////////////////////////////////
 		return mAdpt;
 	}
-	
+
+	public PS_Adapter_grid getAdapter_grid( SQLiteDatabase db, Context ctx, Handler handler ) {
+		// Cargar los datos:
+		getSeq(db);
+		// Adaptar su presentación:
+		if (mAdpt_grid != null) mAdpt_grid = null;
+		mAdpt_grid = new PS_Adapter_grid(ctx, mRegistros, handler);
+		System.gc();
+		///////////////////////////////////
+		return mAdpt_grid;
+	}
+
 	// //////////////////////////////////////
 	// Sincronización con servidor:
 	public boolean enviar( SQLiteDatabase db ) {

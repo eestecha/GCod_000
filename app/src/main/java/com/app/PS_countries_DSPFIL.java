@@ -18,6 +18,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.ArrayAdapter;
+import android.widget.GridView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -44,8 +45,9 @@ public class PS_countries_DSPFIL extends AppCompatActivity {
 	//////////
 	// Declarar controles de pantalla
 	private TextView		mTv_titulo;
-	private ListView		mLv_lista;
+//	private ListView		mLv_lista;
 	private ListAdapter		mLstAdpt;
+	private GridView 		mGv_lista;
 
 	//////////
 
@@ -57,6 +59,7 @@ public class PS_countries_DSPFIL extends AppCompatActivity {
 
 			//////////////////////////
 			// Por si el mensaje trae par�metro 'uno' --> position de la lista:
+/*
 			com.app.db.PS_countries_DAO.Registro reg = null;
 			if ( msg.arg1 != ListView.INVALID_POSITION ) {
 				if ( mLstAdpt!= null && ! mLstAdpt.isEmpty() ) {
@@ -66,6 +69,7 @@ public class PS_countries_DSPFIL extends AppCompatActivity {
 					}
 				}
 			}
+*/
 			//////////////////////////
 
 			switch ( msg.what ) {
@@ -119,6 +123,7 @@ public class PS_countries_DSPFIL extends AppCompatActivity {
 				Log.i(TAG,"MSG_MNU_NUEVO()");
 				startActivity( new Intent(mCtx,PS_countries_ADDRCD.class) );
 				break;
+/*
 
 			case K.MSG_MNU_EDITAR_OK: 
 				Log.i(TAG,"MSG_MNU_EDITAR_OK() --> " + msg.arg1);
@@ -138,6 +143,7 @@ public class PS_countries_DSPFIL extends AppCompatActivity {
 					mHandler.sendEmptyMessage( K.MSG_CARGANDO_ESPERE );
 				}
 				break;
+*/
 
 			}
 
@@ -154,7 +160,8 @@ public class PS_countries_DSPFIL extends AppCompatActivity {
 		super.onCreate(savedInstanceState);
 		//setContentView(R.layout.ps_list);
 		LayoutInflater inflater = (LayoutInflater) this.getSystemService( Context.LAYOUT_INFLATER_SERVICE ); 
-		mViewLayout = inflater.inflate(R.layout.ps_list, null, false);
+//		mViewLayout = inflater.inflate(R.layout.ps_list, null, false);
+		mViewLayout = inflater.inflate(R.layout.ps_list_grid, null, false);
 		setContentView(mViewLayout);
 
 		mCtx = this;
@@ -162,13 +169,14 @@ public class PS_countries_DSPFIL extends AppCompatActivity {
 
 		// Liberar...
 		mTv_titulo = null;
-		mLv_lista = null;
+//		mLv_lista = null;
 		// Instanciar controles de pantalla
 		mTv_titulo = (TextView) findViewById(R.id.ps_tv_titulo);
-		mLv_lista = (ListView) findViewById(R.id.ps_lv_lista);
-		
+//		mLv_lista = (ListView) findViewById(R.id.ps_lv_lista);
+		mGv_lista = (GridView) findViewById(R.id.ps_gv_lista);
+
 		// Men� contextual para cada item de la lista
-		registerForContextMenu(mLv_lista);
+//		registerForContextMenu(mLv_lista);
 
 	}
 	
@@ -271,12 +279,13 @@ public class PS_countries_DSPFIL extends AppCompatActivity {
 
 		// Recuperar en 'DAO.mRegistros' los registros que cumplan el filtro en 'DAO.mRegistro'
 		mLstAdpt = null;
-		mLstAdpt = mDBHelper.ps_countries.getAdapter(mDBHelper.mDB, mCtx, mHandler);
-		if ( mDBHelper.ps_countries.mRegistros.isEmpty() ) {
-			mLstAdpt = null;
-			String[] lstTmp = {K.NODATA};
-			mLstAdpt = new ArrayAdapter<String>(mCtx, android.R.layout.simple_list_item_1,lstTmp);
-		}
+//		mLstAdpt = mDBHelper.ps_countries.getAdapter(mDBHelper.mDB, mCtx, mHandler);
+		mLstAdpt = mDBHelper.ps_countries.getAdapter_grid(mDBHelper.mDB, mCtx, mHandler);
+//		if ( mDBHelper.ps_countries.mRegistros.isEmpty() ) {
+//			mLstAdpt = null;
+//			String[] lstTmp = {K.NODATA};
+//			mLstAdpt = new ArrayAdapter<String>(mCtx, android.R.layout.simple_list_item_1,lstTmp);
+//		}
 
 	}
 
@@ -285,9 +294,11 @@ public class PS_countries_DSPFIL extends AppCompatActivity {
 
 		mTv_titulo.setText( "Países" );
 		
-		if ( mLstAdpt != null) mLv_lista.setAdapter(mLstAdpt);
+//		if ( mLstAdpt != null) mLv_lista.setAdapter(mLstAdpt);
+		if ( mLstAdpt != null) mGv_lista.setAdapter(mLstAdpt);
 
-		K.LeftToRight_Animation(mLv_lista,500);
+//		K.LeftToRight_Animation(mLv_lista,500);
+		K.LeftToRight_Animation(mGv_lista,500);
 		K.LeftToRight_Animation(mViewLayout,350);
 		
 	}
