@@ -303,6 +303,7 @@ public final class Util {
 		}
 		return null;
 	}
+
 	public static int getNivelBateria(Context ctx) {
 
 		IntentFilter iFilter = new IntentFilter(Intent.ACTION_BATTERY_CHANGED);
