@@ -3,26 +3,155 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal" >
-    
-    
-	<TextView android:id="@+id/us_tv_sincro" android:ems="21" android:padding="10dp" android:layout_width="wrap_content" android:layout_height="wrap_content" />
-	<TextView android:id="@+id/us_tv_mark" android:ems="2" android:padding="10dp" android:layout_width="wrap_content" android:layout_height="wrap_content" />
-	<TextView android:id="@+id/us_tv_is_deleted" android:ems="2" android:padding="10dp" android:layout_width="wrap_content" android:layout_height="wrap_content" />
-	<TextView android:id="@+id/us_tv_author" android:ems="101" android:padding="10dp" android:layout_width="wrap_content" android:layout_height="wrap_content" />
-	<TextView android:id="@+id/us_tv_user_id" android:ems="101" android:padding="10dp" android:layout_width="wrap_content" android:layout_height="wrap_content" />
-	<TextView android:id="@+id/us_tv_password" android:ems="101" android:padding="10dp" android:layout_width="wrap_content" android:layout_height="wrap_content" />
-	<TextView android:id="@+id/us_tv_first_name" android:ems="101" android:padding="10dp" android:layout_width="wrap_content" android:layout_height="wrap_content" />
-	<TextView android:id="@+id/us_tv_last_name" android:ems="101" android:padding="10dp" android:layout_width="wrap_content" android:layout_height="wrap_content" />
-	<TextView android:id="@+id/us_tv_email" android:ems="101" android:padding="10dp" android:layout_width="wrap_content" android:layout_height="wrap_content" />
-	<TextView android:id="@+id/us_tv_phone" android:ems="101" android:padding="10dp" android:layout_width="wrap_content" android:layout_height="wrap_content" />
-	<TextView android:id="@+id/us_tv_country_id" android:ems="6" android:padding="10dp" android:layout_width="wrap_content" android:layout_height="wrap_content" />
-	<TextView android:id="@+id/us_tv_PS_name" android:ems="101" android:padding="10dp" android:layout_width="wrap_content" android:layout_height="wrap_content" />
-	<TextView android:id="@+id/us_tv_PS_flag_base64" android:ems="101" android:padding="10dp" android:layout_width="wrap_content" android:layout_height="wrap_content" />
-	<TextView android:id="@+id/us_tv_hash_code" android:ems="101" android:padding="10dp" android:layout_width="wrap_content" android:layout_height="wrap_content" />
-	<TextView android:id="@+id/us_tv_avatar" android:ems="101" android:padding="10dp" android:layout_width="wrap_content" android:layout_height="wrap_content" />
-	<TextView android:id="@+id/us_tv_isInactive" android:ems="2" android:padding="10dp" android:layout_width="wrap_content" android:layout_height="wrap_content" />
-	<TextView android:id="@+id/us_tv_inactivated_date" android:ems="11" android:padding="10dp" android:layout_width="wrap_content" android:layout_height="wrap_content" />
-	<TextView android:id="@+id/us_tv_inactivated_by" android:ems="101" android:padding="10dp" android:layout_width="wrap_content" android:layout_height="wrap_content" />
-	<TextView android:id="@+id/us_tv_json" android:ems="101" android:padding="10dp" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+
+
+	<TextView
+		android:id="@+id/us_tv_sincro"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:ems="21"
+		android:padding="10dp"
+		android:visibility="gone" />
+
+	<TextView
+		android:id="@+id/us_tv_mark"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:ems="2"
+		android:padding="10dp"
+		android:visibility="gone" />
+
+	<TextView
+		android:id="@+id/us_tv_is_deleted"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:ems="2"
+		android:padding="10dp"
+		android:visibility="gone" />
+
+	<TextView
+		android:id="@+id/us_tv_author"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:ems="101"
+		android:padding="10dp"
+		android:visibility="gone" />
+
+	<TextView
+		android:id="@+id/us_tv_user_id"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:ems="6"
+		android:padding="10dp" />
+
+	<TextView
+		android:id="@+id/us_tv_password"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:ems="101"
+		android:padding="10dp"
+		android:visibility="gone" />
+
+	<TextView
+		android:id="@+id/us_tv_first_name"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:ems="4"
+		android:padding="10dp" />
+
+	<TextView
+		android:id="@+id/us_tv_last_name"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:ems="101"
+		android:padding="10dp" />
+
+	<TextView
+		android:id="@+id/us_tv_email"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:ems="101"
+		android:padding="10dp"
+		android:visibility="gone" />
+
+	<TextView
+		android:id="@+id/us_tv_phone"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:ems="101"
+		android:padding="10dp"
+		android:visibility="gone" />
+
+	<TextView
+		android:id="@+id/us_tv_country_id"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:ems="6"
+		android:padding="10dp"
+		android:visibility="gone" />
+
+	<TextView
+		android:id="@+id/us_tv_PS_name"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:ems="101"
+		android:padding="10dp"
+		android:visibility="gone" />
+
+	<TextView
+		android:id="@+id/us_tv_PS_flag_base64"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:ems="101"
+		android:padding="10dp"
+		android:visibility="gone" />
+
+	<TextView
+		android:id="@+id/us_tv_hash_code"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:ems="101"
+		android:padding="10dp"
+		android:visibility="gone" />
+
+	<TextView
+		android:id="@+id/us_tv_avatar"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:ems="101"
+		android:padding="10dp"
+		android:visibility="gone" />
+
+	<TextView
+		android:id="@+id/us_tv_isInactive"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:ems="2"
+		android:padding="10dp"
+		android:visibility="gone" />
+
+	<TextView
+		android:id="@+id/us_tv_inactivated_date"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:ems="11"
+		android:padding="10dp"
+		android:visibility="gone" />
+
+	<TextView
+		android:id="@+id/us_tv_inactivated_by"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:ems="101"
+		android:padding="10dp"
+		android:visibility="gone" />
+
+	<TextView
+		android:id="@+id/us_tv_json"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:ems="101"
+		android:padding="10dp"
+		android:visibility="gone" />
 
 </LinearLayout>

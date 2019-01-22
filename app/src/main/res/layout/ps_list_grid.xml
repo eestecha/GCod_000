@@ -17,11 +17,9 @@
         android:id="@+id/ps_gv_lista"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:columnWidth="90dp"
+        android:background="@drawable/ic_launcher_background"
         android:gravity="center"
-        android:horizontalSpacing="10dp"
         android:numColumns="auto_fit"
-        android:stretchMode="columnWidth"
-        android:verticalSpacing="10dp" />
+        android:scaleType="fitCenter" />
 
 </LinearLayout>
