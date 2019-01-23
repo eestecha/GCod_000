@@ -42,7 +42,8 @@ public class PS_Adapter_grid extends BaseAdapter {
         if (convertView == null) {
             // if it's not recycled, initialize some attributes
             imageView = new ImageView(mCtxt);
-            imageView.setLayoutParams(new ViewGroup.LayoutParams(300,300));
+//            imageView.setLayoutParams(new ViewGroup.LayoutParams(300,300));
+            imageView.setLayoutParams(new  android.widget.AbsListView.LayoutParams(300, 300));
 //          imageView.setScaleType(ImageView.ScaleType.FIT_XY);
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             imageView.setPadding(8, 8, 8, 8);
