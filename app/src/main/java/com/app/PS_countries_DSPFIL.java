@@ -48,8 +48,8 @@ public class PS_countries_DSPFIL extends AppCompatActivity {
 	// Declarar controles de pantalla
 	private TextView		mTv_titulo;
 //	private ListView		mLv_lista;
-	private ListAdapter		mLstAdpt;
 	private GridView 		mGv_lista;
+	private ListAdapter		mLstAdpt;
 
 	//////////
 
@@ -61,7 +61,6 @@ public class PS_countries_DSPFIL extends AppCompatActivity {
 
 			//////////////////////////
 			// Por si el mensaje trae par�metro 'uno' --> position de la lista:
-/*
 			com.app.db.PS_countries_DAO.Registro reg = null;
 			if ( msg.arg1 != ListView.INVALID_POSITION ) {
 				if ( mLstAdpt!= null && ! mLstAdpt.isEmpty() ) {
@@ -71,7 +70,6 @@ public class PS_countries_DSPFIL extends AppCompatActivity {
 					}
 				}
 			}
-*/
 			//////////////////////////
 
 			switch ( msg.what ) {
@@ -125,7 +123,6 @@ public class PS_countries_DSPFIL extends AppCompatActivity {
 				Log.i(TAG,"MSG_MNU_NUEVO()");
 				startActivity( new Intent(mCtx,PS_countries_ADDRCD.class) );
 				break;
-/*
 
 			case K.MSG_MNU_EDITAR_OK: 
 				Log.i(TAG,"MSG_MNU_EDITAR_OK() --> " + msg.arg1);
@@ -145,7 +142,6 @@ public class PS_countries_DSPFIL extends AppCompatActivity {
 					mHandler.sendEmptyMessage( K.MSG_CARGANDO_ESPERE );
 				}
 				break;
-*/
 
 			}
 
@@ -290,8 +286,7 @@ public class PS_countries_DSPFIL extends AppCompatActivity {
 
 		// Recuperar en 'DAO.mRegistros' los registros que cumplan el filtro en 'DAO.mRegistro'
 		mLstAdpt = null;
-//		mLstAdpt = mDBHelper.ps_countries.getAdapter(mDBHelper.mDB, mCtx, mHandler);
-		mLstAdpt = mDBHelper.ps_countries.getAdapter_grid(mDBHelper.mDB, mCtx, mHandler);
+		mLstAdpt = mDBHelper.ps_countries.getAdapter(mDBHelper.mDB, mCtx, mHandler);
 		if ( mDBHelper.ps_countries.mRegistros.isEmpty() ) {
 			mLstAdpt = null;
 			String[] lstTmp = {K.NODATA};
