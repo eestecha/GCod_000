@@ -319,7 +319,7 @@ public final class Util {
 
 	public static boolean decodeB64ToImageView(String b64_encodedImage, ImageView inOut_iv) {
 		Bitmap bm = decodeB64ToBitmap(b64_encodedImage);
-		if ( bm != null ) {
+		if ( inOut_iv != null && bm != null ) {
 			inOut_iv.setImageBitmap( bm );
 			return true;
 		}

@@ -13,11 +13,13 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.app.db._DBHelper;
 import com.app.util.K;
+import com.app.util.Util;
 
 public class PS_countries_EDTRCD extends Activity {
 
@@ -47,6 +49,7 @@ public class PS_countries_EDTRCD extends Activity {
 	public EditText mEt_flag_base64;	// flag_base64
 	public EditText mEt_json;	// json
 
+	public ImageView mIv_flag;	// flag image
 	public String mBCK_flag_base64;	// flag_base64
 
 	//////////
@@ -134,6 +137,8 @@ public class PS_countries_EDTRCD extends Activity {
 		mEt_flag_base64 = null;	// flag_base64
 		mEt_json = null;	// json
 
+		mIv_flag = null;
+
 		// Instanciar controles de pantalla
 		mTv_titulo = (TextView) findViewById(R.id.ps_tv_titulo);
 		mEt_sincro = (EditText) findViewById(R.id.ps_et_sincro);	// sincro
@@ -146,6 +151,8 @@ public class PS_countries_EDTRCD extends Activity {
 		mEt_alpha_3 = (EditText) findViewById(R.id.ps_et_alpha_3);	// alpha_3
 		mEt_flag_base64 = (EditText) findViewById(R.id.ps_et_flag_base64);	// flag_base64
 		mEt_json = (EditText) findViewById(R.id.ps_et_json);	// json
+
+		mIv_flag = (ImageView) findViewById(R.id.ps_iv_flag);	// json
 
 		// Inactivar edicion de campos PK:
 		mEt_country_id.setFocusable(false); mEt_country_id.setEnabled(false);	// country_id
@@ -227,6 +234,8 @@ public class PS_countries_EDTRCD extends Activity {
 		mEt_alpha_3.setText( mDBHelper.ps_countries.mRegistro.alpha_3 );	// alpha_3
 		mEt_flag_base64.setText( mDBHelper.ps_countries.mRegistro.flag_base64 );	// flag_base64
 		mEt_json.setText( mDBHelper.ps_countries.mRegistro.json );	// json
+
+		mIv_flag.setImageBitmap( Util.decodeB64ToBitmap( mDBHelper.ps_countries.mRegistro.flag_base64 ) );
 
 		mBCK_flag_base64 = mDBHelper.ps_countries.mRegistro.flag_base64;
 

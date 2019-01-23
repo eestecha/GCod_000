@@ -52,8 +52,14 @@ public class PS_Adapter extends BaseAdapter {
 		((TextView) convertView.findViewById( R.id.ps_tv_flag_base64 )).setText(  mItems.get(position).flag_base64 );	// flag_base64
 		((TextView) convertView.findViewById( R.id.ps_tv_json )).setText(  mItems.get(position).json );	// json
 
+		// Flag b64 to image:
 		ImageView iv = (ImageView) convertView.findViewById(R.id.ps_iv_flag);
-		Util.decodeB64ToImageView(mItems.get(position).flag_base64, iv);
+//		ViewGroup.LayoutParams lp = iv.getLayoutParams();
+//		lp.width = 123;
+//		lp.height = 456;
+//		iv.requestLayout();
+		iv.setImageBitmap( Util.decodeB64ToBitmap(mItems.get(position).flag_base64) );
+//		((ImageView) convertView.findViewById(R.id.ps_iv_flag)).setImageBitmap( Util.decodeB64ToBitmap(mItems.get(position).flag_base64) );
 
 		// Eventos de acciones:
 		

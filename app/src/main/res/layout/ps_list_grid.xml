@@ -17,8 +17,7 @@
         android:id="@+id/ps_gv_lista"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
-        android:numColumns="auto_fit"
-        android:scaleType="fitCenter" />
+        android:numColumns="3"
+        android:scaleType="fitXY" />
 
 </LinearLayout>

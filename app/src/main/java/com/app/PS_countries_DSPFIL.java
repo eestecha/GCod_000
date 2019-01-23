@@ -172,16 +172,7 @@ public class PS_countries_DSPFIL extends AppCompatActivity {
 		mTv_titulo = (TextView) findViewById(R.id.ps_tv_titulo);
 //		mLv_lista = (ListView) findViewById(R.id.ps_lv_lista);
 		mGv_lista = (GridView) findViewById(R.id.ps_gv_lista);
-		mGv_lista.setOnItemClickListener(
-				new AdapterView.OnItemClickListener() {
-					@Override
-					public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-						Toast.makeText(mCtx, "" + position, Toast.LENGTH_SHORT).show();
-					}
-				}
-			);
 
-		// Men� contextual para cada item de la lista
 //		registerForContextMenu(mLv_lista);
 		registerForContextMenu(mGv_lista);
 
@@ -260,7 +251,8 @@ public class PS_countries_DSPFIL extends AppCompatActivity {
 	    switch (item.getItemId()) {
 
 			case R.id.ps_mnu_editar: 
-				mHandler.sendMessage( Message.obtain(mHandler, K.MSG_MNU_EDITAR, info.position, 0 ) );
+//				mHandler.sendMessage( Message.obtain(mHandler, K.MSG_MNU_EDITAR, info.position, 0 ) );
+				mHandler.sendMessage( Message.obtain(mHandler, K.MSG_MNU_EDITAR_OK, info.position, 0 ) );
 				return true;
 
 			case R.id.ps_mnu_suprimir: 
