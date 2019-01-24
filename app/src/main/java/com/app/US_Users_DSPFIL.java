@@ -244,8 +244,9 @@ public class US_Users_DSPFIL extends AppCompatActivity {
 
 	    switch (item.getItemId()) {
 
-			case R.id.us_mnu_editar: 
-				mHandler.sendMessage( Message.obtain(mHandler, K.MSG_MNU_EDITAR, info.position, 0 ) );
+			case R.id.us_mnu_editar:
+//				mHandler.sendMessage( Message.obtain(mHandler, K.MSG_MNU_EDITAR, info.position, 0 ) );
+				mHandler.sendMessage( Message.obtain(mHandler, K.MSG_MNU_EDITAR_OK, info.position, 0 ) );
 				return true;
 
 			case R.id.us_mnu_suprimir: 

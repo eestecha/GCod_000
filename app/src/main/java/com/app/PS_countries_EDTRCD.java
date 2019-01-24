@@ -232,12 +232,11 @@ public class PS_countries_EDTRCD extends Activity {
 		mEt_name.setText( mDBHelper.ps_countries.mRegistro.name );	// name
 		mEt_alpha_2.setText( mDBHelper.ps_countries.mRegistro.alpha_2 );	// alpha_2
 		mEt_alpha_3.setText( mDBHelper.ps_countries.mRegistro.alpha_3 );	// alpha_3
-		mEt_flag_base64.setText( mDBHelper.ps_countries.mRegistro.flag_base64 );	// flag_base64
+//		mEt_flag_base64.setText( mDBHelper.ps_countries.mRegistro.flag_base64 );	// flag_base64
 		mEt_json.setText( mDBHelper.ps_countries.mRegistro.json );	// json
 
-		mIv_flag.setImageBitmap( Util.decodeB64ToBitmap( mDBHelper.ps_countries.mRegistro.flag_base64 ) );
-
 		mBCK_flag_base64 = mDBHelper.ps_countries.mRegistro.flag_base64;
+		mIv_flag.setImageBitmap( Util.decodeB64ToBitmap( mDBHelper.ps_countries.mRegistro.flag_base64 ) );
 
 		// Se autoselecciona contenido del campo con el focus:
 		if (mEt_sincro.isFocused()) { mEt_sincro.selectAll(); }	// sincro
@@ -266,7 +265,7 @@ public class PS_countries_EDTRCD extends Activity {
 		mDBHelper.ps_countries.mRegistro.name = mEt_name.getText().toString();	// name
 		mDBHelper.ps_countries.mRegistro.alpha_2 = mEt_alpha_2.getText().toString();	// alpha_2
 		mDBHelper.ps_countries.mRegistro.alpha_3 = mEt_alpha_3.getText().toString();	// alpha_3
-		mDBHelper.ps_countries.mRegistro.flag_base64 = mEt_flag_base64.getText().toString();	// flag_base64
+//		mDBHelper.ps_countries.mRegistro.flag_base64 = mEt_flag_base64.getText().toString();	// flag_base64
 		mDBHelper.ps_countries.mRegistro.json = mEt_json.getText().toString();	// json
 
 		mDBHelper.ps_countries.mRegistro.flag_base64 = mBCK_flag_base64;	// flag_base64 BCK

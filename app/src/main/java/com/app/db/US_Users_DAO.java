@@ -513,6 +513,10 @@ public class US_Users_DAO {
 		// (Internamente utilizara 'mRegistro')
 		long res = 0;
 
+		/////////////////////////////////////
+		setVirtuals(db);
+		/////////////////////////////////////
+
 		ContentValues initialValues = new ContentValues();
 
 		db.beginTransaction();
@@ -549,6 +553,10 @@ public class US_Users_DAO {
 		// Los datos RCD deben estar en el miembro 'mRegistro'
 		long res = 0;
 
+		/////////////////////////////////////
+		setVirtuals(db);
+		/////////////////////////////////////
+
 		ContentValues initialValues = new ContentValues();
 		for (int i = 0; i < mColNombres.length; i++) {
 			initialValues.put(mColNombres[i], mRegistro.getVal(i));
@@ -578,6 +586,10 @@ public class US_Users_DAO {
 	public long updObj(SQLiteDatabase db) {
 		// Los datos RCD deben estar en el miembro 'mRegistro'
 		long res = 0;
+
+		/////////////////////////////////////
+		setVirtuals(db);
+		/////////////////////////////////////
 
 		ContentValues values = new ContentValues();
 		for (int i = 0; i < mColNombres.length; i++) {
@@ -776,6 +788,25 @@ public class US_Users_DAO {
 
 		return this;
 	}
+
+	private void setVirtuals(SQLiteDatabase db) {
+
+///////////////////////////////////////
+// Ejemplo: Nombre y bandera del país (PS):
+		mRegistro.PS_name = "";
+		mRegistro.PS_flag_base64 = "";
+		if ( mRegistro.country_id != null && mRegistro.country_id.trim().length() > 0 ) {
+			PS_countries_DAO ps_dao = new PS_countries_DAO();
+			ps_dao.mRegistro.country_id = mRegistro.country_id;
+			if ( ps_dao.getRcd(db) != null ) {
+				mRegistro.PS_name = ps_dao.mRegistro.name;
+				mRegistro.PS_flag_base64 = ps_dao.mRegistro.flag_base64;
+			}
+		}
+///////////////////////////////////////
+
+	}
+
 
 	// //////////////////////////////////////
 	public long getRegCount(SQLiteDatabase db) {

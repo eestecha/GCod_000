@@ -13,11 +13,13 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.app.db._DBHelper;
 import com.app.util.K;
+import com.app.util.Util;
 
 public class US_Users_EDTRCD extends Activity {
 
@@ -55,6 +57,9 @@ public class US_Users_EDTRCD extends Activity {
 	public EditText mEt_inactivated_date;	// inactivated_date
 	public EditText mEt_inactivated_by;	// inactivated_by
 	public EditText mEt_json;	// json
+
+	public ImageView mIv_PS_flag;	// PS_flag
+	public String mBCK_flag_base64;	// flag_base64
 
 	//////////
 
@@ -150,6 +155,8 @@ public class US_Users_EDTRCD extends Activity {
 		mEt_inactivated_by = null;	// inactivated_by
 		mEt_json = null;	// json
 
+		mIv_PS_flag = null;
+
 		// Instanciar controles de pantalla
 		mTv_titulo = (TextView) findViewById(R.id.us_tv_titulo);
 		mEt_sincro = (EditText) findViewById(R.id.us_et_sincro);	// sincro
@@ -171,6 +178,8 @@ public class US_Users_EDTRCD extends Activity {
 		mEt_inactivated_date = (EditText) findViewById(R.id.us_et_inactivated_date);	// inactivated_date
 		mEt_inactivated_by = (EditText) findViewById(R.id.us_et_inactivated_by);	// inactivated_by
 		mEt_json = (EditText) findViewById(R.id.us_et_json);	// json
+
+		mIv_PS_flag = (ImageView) findViewById(R.id.us_iv_PS_flag);
 
 		// Inactivar edicion de campos PK:
 		mEt_user_id.setFocusable(false); mEt_user_id.setEnabled(false);	// user_id
@@ -254,14 +263,18 @@ public class US_Users_EDTRCD extends Activity {
 		mEt_phone.setText( mDBHelper.us_Users.mRegistro.phone );	// phone
 		mEt_country_id.setText( mDBHelper.us_Users.mRegistro.country_id );	// country_id
 		mEt_PS_name.setText( mDBHelper.us_Users.mRegistro.PS_name );	// PS_name
-		mEt_PS_flag_base64.setText( mDBHelper.us_Users.mRegistro.PS_flag_base64 );	// PS_flag_base64
+//		mEt_PS_flag_base64.setText( mDBHelper.us_Users.mRegistro.PS_flag_base64 );	// PS_flag_base64
 		mEt_hash_code.setText( mDBHelper.us_Users.mRegistro.hash_code );	// hash_code
 		mEt_avatar.setText( mDBHelper.us_Users.mRegistro.avatar );	// avatar
 		mEt_isInactive.setText( mDBHelper.us_Users.mRegistro.isInactive );	// isInactive
 		mEt_inactivated_date.setText( mDBHelper.us_Users.mRegistro.inactivated_date );	// inactivated_date
 		mEt_inactivated_by.setText( mDBHelper.us_Users.mRegistro.inactivated_by );	// inactivated_by
 		mEt_json.setText( mDBHelper.us_Users.mRegistro.json );	// json
-		
+
+		mBCK_flag_base64 = mDBHelper.us_Users.mRegistro.PS_flag_base64;
+
+		mIv_PS_flag.setImageBitmap( Util.decodeB64ToBitmap( mDBHelper.us_Users.mRegistro.PS_flag_base64 ) );
+
 		// Se autoselecciona contenido del campo con el focus:
 		if (mEt_sincro.isFocused()) { mEt_sincro.selectAll(); }	// sincro
 		if (mEt_mark.isFocused()) { mEt_mark.selectAll(); }	// mark
@@ -302,14 +315,16 @@ public class US_Users_EDTRCD extends Activity {
 		mDBHelper.us_Users.mRegistro.phone = mEt_phone.getText().toString();	// phone
 		mDBHelper.us_Users.mRegistro.country_id = mEt_country_id.getText().toString();	// country_id
 		mDBHelper.us_Users.mRegistro.PS_name = mEt_PS_name.getText().toString();	// PS_name
-		mDBHelper.us_Users.mRegistro.PS_flag_base64 = mEt_PS_flag_base64.getText().toString();	// PS_flag_base64
+//		mDBHelper.us_Users.mRegistro.PS_flag_base64 = mEt_PS_flag_base64.getText().toString();	// PS_flag_base64
 		mDBHelper.us_Users.mRegistro.hash_code = mEt_hash_code.getText().toString();	// hash_code
 		mDBHelper.us_Users.mRegistro.avatar = mEt_avatar.getText().toString();	// avatar
 		mDBHelper.us_Users.mRegistro.isInactive = mEt_isInactive.getText().toString();	// isInactive
 		mDBHelper.us_Users.mRegistro.inactivated_date = mEt_inactivated_date.getText().toString();	// inactivated_date
 		mDBHelper.us_Users.mRegistro.inactivated_by = mEt_inactivated_by.getText().toString();	// inactivated_by
 		mDBHelper.us_Users.mRegistro.json = mEt_json.getText().toString();	// json
-		
+
+		mDBHelper.us_Users.mRegistro.PS_flag_base64 = mBCK_flag_base64;	// PS_flag_base64
+
 		// Validar PK:
 		if ( 
 			   mDBHelper.us_Users.mRegistro.user_id == null || mDBHelper.us_Users.mRegistro.user_id.trim().length() < 1
