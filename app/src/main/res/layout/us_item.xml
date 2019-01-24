@@ -4,45 +4,46 @@
 	android:layout_height="match_parent"
 	android:orientation="vertical">
 
-	<LinearLayout
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
 
-		<LinearLayout
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
 
-			<TextView
-				android:id="@+id/us_tv_titulo"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:gravity="center_vertical|center_horizontal"
-				android:padding="20dp"
-				android:text="@string/indefinido"
-				android:textAppearance="?android:attr/textAppearanceLarge" />
+            <TextView
+                android:id="@+id/us_tv_titulo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical|center_horizontal"
+                android:padding="20dp"
+                android:text="@string/indefinido"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
 
-			<LinearLayout
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:padding="10dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp" >
 
-				<Button
-					android:id="@+id/bt_cancelar"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:layout_weight="0.5"
-					android:text="@string/cancelar" />
+                <Button
+                    android:id="@+id/bt_cancelar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:text="@string/cancelar" />
 
-				<Button
-					android:id="@+id/bt_aceptar"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:layout_weight="0.5"
-					android:text="@string/aceptar" />
-			</LinearLayout>
-		</LinearLayout>
+                <Button
+                    android:id="@+id/bt_aceptar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:text="@string/aceptar" />
+            </LinearLayout>
+
+        </LinearLayout>
 
 		<ScrollView
 			android:layout_width="match_parent"
@@ -53,550 +54,133 @@
 				android:layout_height="wrap_content"
 				android:orientation="vertical" >
 
-				<TableLayout
-					android:id="@+id/tb_ly"
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content">
-
-
-					<TableRow
-						android:id="@+id/tbRw0"
-						android:layout_width="match_parent"
-						android:layout_height="wrap_content">
-
-						<TextView
-							android:id="@+id/us_tv_tit_sincro"
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content"
-							android:padding="10dp"
-							android:text="sincro" />
-
-						<LinearLayout
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content">
-
-							<EditText
-								android:id="@+id/us_et_sincro"
-								android:layout_width="wrap_content"
-								android:layout_height="wrap_content"
-								android:ems="21"
-								android:inputType="text"
-								android:maxLength="20"
-								android:padding="10dp"
-								android:selectAllOnFocus="true" />
-						</LinearLayout>
-					</TableRow>
-
-					<TableRow
-						android:id="@+id/tbRw1"
-						android:layout_width="match_parent"
-						android:layout_height="wrap_content">
-
-						<TextView
-							android:id="@+id/us_tv_tit_mark"
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content"
-							android:padding="10dp"
-							android:text="mark" />
-
-						<LinearLayout
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content">
-
-							<EditText
-								android:id="@+id/us_et_mark"
-								android:layout_width="wrap_content"
-								android:layout_height="wrap_content"
-								android:ems="2"
-								android:inputType="text"
-								android:maxLength="1"
-								android:padding="10dp"
-								android:selectAllOnFocus="true" />
-						</LinearLayout>
-					</TableRow>
-
-					<TableRow
-						android:id="@+id/tbRw2"
-						android:layout_width="match_parent"
-						android:layout_height="wrap_content">
-
-						<TextView
-							android:id="@+id/us_tv_tit_is_deleted"
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content"
-							android:padding="10dp"
-							android:text="is_deleted" />
-
-						<LinearLayout
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content">
-
-							<EditText
-								android:id="@+id/us_et_is_deleted"
-								android:layout_width="wrap_content"
-								android:layout_height="wrap_content"
-								android:ems="2"
-								android:inputType="text"
-								android:maxLength="1"
-								android:padding="10dp"
-								android:selectAllOnFocus="true" />
-						</LinearLayout>
-					</TableRow>
-
-					<TableRow
-						android:id="@+id/tbRw3"
-						android:layout_width="match_parent"
-						android:layout_height="wrap_content">
-
-						<TextView
-							android:id="@+id/us_tv_tit_author"
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content"
-							android:padding="10dp"
-							android:text="author" />
-
-						<LinearLayout
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content">
-
-							<EditText
-								android:id="@+id/us_et_author"
-								android:layout_width="wrap_content"
-								android:layout_height="wrap_content"
-								android:ems="101"
-								android:inputType="text"
-								android:maxLength="100"
-								android:padding="10dp"
-								android:selectAllOnFocus="true" />
-						</LinearLayout>
-					</TableRow>
-
-					<TableRow
-						android:id="@+id/tbRw4"
-						android:layout_width="match_parent"
-						android:layout_height="wrap_content">
-
-						<TextView
-							android:id="@+id/us_tv_tit_user_id"
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content"
-							android:padding="10dp"
-							android:text="user_id"
-							android:textStyle="bold" />
-
-						<LinearLayout
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content">
-
-							<EditText
-								android:id="@+id/us_et_user_id"
-								android:layout_width="wrap_content"
-								android:layout_height="wrap_content"
-								android:ems="101"
-								android:inputType="text"
-								android:maxLength="100"
-								android:padding="10dp"
-								android:selectAllOnFocus="true" />
-						</LinearLayout>
-					</TableRow>
-
-					<TableRow
-						android:id="@+id/tbRw5"
-						android:layout_width="match_parent"
-						android:layout_height="wrap_content">
-
-						<TextView
-							android:id="@+id/us_tv_tit_password"
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content"
-							android:padding="10dp"
-							android:text="password" />
-
-						<LinearLayout
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content">
-
-							<EditText
-								android:id="@+id/us_et_password"
-								android:layout_width="wrap_content"
-								android:layout_height="wrap_content"
-								android:ems="101"
-								android:inputType="text"
-								android:maxLength="100"
-								android:padding="10dp"
-								android:selectAllOnFocus="true" />
-						</LinearLayout>
-					</TableRow>
-
-					<TableRow
-						android:id="@+id/tbRw6"
-						android:layout_width="match_parent"
-						android:layout_height="wrap_content">
-
-						<TextView
-							android:id="@+id/us_tv_tit_first_name"
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content"
-							android:padding="10dp"
-							android:text="first_name" />
-
-						<LinearLayout
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content">
-
-							<EditText
-								android:id="@+id/us_et_first_name"
-								android:layout_width="wrap_content"
-								android:layout_height="wrap_content"
-								android:ems="101"
-								android:inputType="text"
-								android:maxLength="100"
-								android:padding="10dp"
-								android:selectAllOnFocus="true" />
-						</LinearLayout>
-					</TableRow>
-
-					<TableRow
-						android:id="@+id/tbRw7"
-						android:layout_width="match_parent"
-						android:layout_height="wrap_content">
-
-						<TextView
-							android:id="@+id/us_tv_tit_last_name"
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content"
-							android:padding="10dp"
-							android:text="last_name" />
-
-						<LinearLayout
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content">
-
-							<EditText
-								android:id="@+id/us_et_last_name"
-								android:layout_width="wrap_content"
-								android:layout_height="wrap_content"
-								android:ems="101"
-								android:inputType="text"
-								android:maxLength="100"
-								android:padding="10dp"
-								android:selectAllOnFocus="true" />
-						</LinearLayout>
-					</TableRow>
-
-					<TableRow
-						android:id="@+id/tbRw8"
-						android:layout_width="match_parent"
-						android:layout_height="wrap_content">
-
-						<TextView
-							android:id="@+id/us_tv_tit_email"
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content"
-							android:padding="10dp"
-							android:text="email" />
-
-						<LinearLayout
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content">
-
-							<EditText
-								android:id="@+id/us_et_email"
-								android:layout_width="wrap_content"
-								android:layout_height="wrap_content"
-								android:ems="101"
-								android:inputType="text"
-								android:maxLength="100"
-								android:padding="10dp"
-								android:selectAllOnFocus="true" />
-						</LinearLayout>
-					</TableRow>
-
-					<TableRow
-						android:id="@+id/tbRw9"
-						android:layout_width="match_parent"
-						android:layout_height="wrap_content">
-
-						<TextView
-							android:id="@+id/us_tv_tit_phone"
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content"
-							android:padding="10dp"
-							android:text="phone" />
-
-						<LinearLayout
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content">
-
-							<EditText
-								android:id="@+id/us_et_phone"
-								android:layout_width="wrap_content"
-								android:layout_height="wrap_content"
-								android:ems="101"
-								android:inputType="text"
-								android:maxLength="100"
-								android:padding="10dp"
-								android:selectAllOnFocus="true" />
-						</LinearLayout>
-					</TableRow>
-
-					<TableRow
-						android:id="@+id/tbRw10"
-						android:layout_width="match_parent"
-						android:layout_height="wrap_content">
-
-						<TextView
-							android:id="@+id/us_tv_tit_country_id"
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content"
-							android:padding="10dp"
-							android:text="country_id" />
-
-						<LinearLayout
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content">
-
-							<EditText
-								android:id="@+id/us_et_country_id"
-								android:layout_width="wrap_content"
-								android:layout_height="wrap_content"
-								android:ems="6"
-								android:inputType="number"
-								android:maxLength="5"
-								android:padding="10dp"
-								android:selectAllOnFocus="true" />
-						</LinearLayout>
-					</TableRow>
-
-					<TableRow
-						android:id="@+id/tbRw11"
-						android:layout_width="match_parent"
-						android:layout_height="wrap_content">
-
-						<TextView
-							android:id="@+id/us_tv_tit_PS_name"
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content"
-							android:padding="10dp"
-							android:text="PS_name" />
-
-						<LinearLayout
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content">
-
-							<EditText
-								android:id="@+id/us_et_PS_name"
-								android:layout_width="wrap_content"
-								android:layout_height="wrap_content"
-								android:ems="101"
-								android:inputType="text"
-								android:maxLength="100"
-								android:padding="10dp"
-								android:selectAllOnFocus="true" />
-						</LinearLayout>
-					</TableRow>
-
-					<TableRow
-						android:id="@+id/tbRw12"
-						android:layout_width="match_parent"
-						android:layout_height="wrap_content">
-
-						<TextView
-							android:id="@+id/us_tv_tit_PS_flag_base64"
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content"
-							android:padding="10dp"
-							android:text="PS_flag_base64" />
-
-						<LinearLayout
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content">
-
-							<EditText
-								android:id="@+id/us_et_PS_flag_base64"
-								android:layout_width="wrap_content"
-								android:layout_height="wrap_content"
-								android:ems="101"
-								android:inputType="text"
-								android:maxLength="100"
-								android:padding="10dp"
-								android:selectAllOnFocus="true" />
-						</LinearLayout>
-					</TableRow>
-
-					<TableRow
-						android:id="@+id/tbRw13"
-						android:layout_width="match_parent"
-						android:layout_height="wrap_content">
-
-						<TextView
-							android:id="@+id/us_tv_tit_hash_code"
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content"
-							android:padding="10dp"
-							android:text="hash_code" />
-
-						<LinearLayout
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content">
-
-							<EditText
-								android:id="@+id/us_et_hash_code"
-								android:layout_width="wrap_content"
-								android:layout_height="wrap_content"
-								android:ems="101"
-								android:inputType="text"
-								android:maxLength="100"
-								android:padding="10dp"
-								android:selectAllOnFocus="true" />
-						</LinearLayout>
-					</TableRow>
-
-					<TableRow
-						android:id="@+id/tbRw14"
-						android:layout_width="match_parent"
-						android:layout_height="wrap_content">
-
-						<TextView
-							android:id="@+id/us_tv_tit_avatar"
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content"
-							android:padding="10dp"
-							android:text="avatar" />
-
-						<LinearLayout
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content">
-
-							<EditText
-								android:id="@+id/us_et_avatar"
-								android:layout_width="wrap_content"
-								android:layout_height="wrap_content"
-								android:ems="101"
-								android:inputType="text"
-								android:maxLength="100"
-								android:padding="10dp"
-								android:selectAllOnFocus="true" />
-						</LinearLayout>
-					</TableRow>
-
-					<TableRow
-						android:id="@+id/tbRw15"
-						android:layout_width="match_parent"
-						android:layout_height="wrap_content">
-
-						<TextView
-							android:id="@+id/us_tv_tit_isInactive"
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content"
-							android:padding="10dp"
-							android:text="isInactive" />
-
-						<LinearLayout
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content">
-
-							<EditText
-								android:id="@+id/us_et_isInactive"
-								android:layout_width="wrap_content"
-								android:layout_height="wrap_content"
-								android:ems="2"
-								android:inputType="text"
-								android:maxLength="1"
-								android:padding="10dp"
-								android:selectAllOnFocus="true" />
-						</LinearLayout>
-					</TableRow>
-
-					<TableRow
-						android:id="@+id/tbRw16"
-						android:layout_width="match_parent"
-						android:layout_height="wrap_content">
-
-						<TextView
-							android:id="@+id/us_tv_tit_inactivated_date"
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content"
-							android:padding="10dp"
-							android:text="inactivated_date" />
-
-						<LinearLayout
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content">
-
-							<EditText
-								android:id="@+id/us_et_inactivated_date"
-								android:layout_width="wrap_content"
-								android:layout_height="wrap_content"
-								android:ems="11"
-								android:inputType="text"
-								android:maxLength="10"
-								android:padding="10dp"
-								android:selectAllOnFocus="true" />
-						</LinearLayout>
-					</TableRow>
-
-					<TableRow
-						android:id="@+id/tbRw17"
-						android:layout_width="match_parent"
-						android:layout_height="wrap_content">
-
-						<TextView
-							android:id="@+id/us_tv_tit_inactivated_by"
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content"
-							android:padding="10dp"
-							android:text="inactivated_by" />
-
-						<LinearLayout
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content">
-
-							<EditText
-								android:id="@+id/us_et_inactivated_by"
-								android:layout_width="wrap_content"
-								android:layout_height="wrap_content"
-								android:ems="101"
-								android:inputType="text"
-								android:maxLength="100"
-								android:padding="10dp"
-								android:selectAllOnFocus="true" />
-						</LinearLayout>
-					</TableRow>
-
-					<TableRow
-						android:id="@+id/tbRw18"
-						android:layout_width="match_parent"
-						android:layout_height="wrap_content">
-
-						<TextView
-							android:id="@+id/us_tv_tit_json"
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content"
-							android:padding="10dp"
-							android:text="json" />
-
-						<LinearLayout
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content">
-
-							<EditText
-								android:id="@+id/us_et_json"
-								android:layout_width="wrap_content"
-								android:layout_height="wrap_content"
-								android:ems="101"
-								android:inputType="text"
-								android:maxLength="100"
-								android:padding="10dp"
-								android:selectAllOnFocus="true" />
-						</LinearLayout>
-					</TableRow>
-
-				</TableLayout>
+		        <TableLayout
+            android:id="@+id/tb_ly"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            
+		<TableRow android:id="@+id/tbRw0" android:layout_width="match_parent" android:layout_height="wrap_content" >
+			<TextView android:id="@+id/us_tv_tit_sincro" android:text="sincro" android:padding="10dp" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+			<LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" >
+				<EditText android:id="@+id/us_et_sincro" android:inputType="text" android:maxLength="20" android:ems="21" android:padding="10dp" android:selectAllOnFocus="true" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+			</LinearLayout>
+		</TableRow>
+		<TableRow android:id="@+id/tbRw1" android:layout_width="match_parent" android:layout_height="wrap_content" >
+			<TextView android:id="@+id/us_tv_tit_mark" android:text="mark" android:padding="10dp" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+			<LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" >
+				<EditText android:id="@+id/us_et_mark" android:inputType="text" android:maxLength="1" android:ems="2" android:padding="10dp" android:selectAllOnFocus="true" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+			</LinearLayout>
+		</TableRow>
+		<TableRow android:id="@+id/tbRw2" android:layout_width="match_parent" android:layout_height="wrap_content" >
+			<TextView android:id="@+id/us_tv_tit_is_deleted" android:text="is_deleted" android:padding="10dp" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+			<LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" >
+				<EditText android:id="@+id/us_et_is_deleted" android:inputType="text" android:maxLength="1" android:ems="2" android:padding="10dp" android:selectAllOnFocus="true" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+			</LinearLayout>
+		</TableRow>
+		<TableRow android:id="@+id/tbRw3" android:layout_width="match_parent" android:layout_height="wrap_content" >
+			<TextView android:id="@+id/us_tv_tit_author" android:text="author" android:padding="10dp" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+			<LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" >
+				<EditText android:id="@+id/us_et_author" android:inputType="text" android:maxLength="100" android:ems="101" android:padding="10dp" android:selectAllOnFocus="true" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+			</LinearLayout>
+		</TableRow>
+		<TableRow android:id="@+id/tbRw4" android:layout_width="match_parent" android:layout_height="wrap_content" >
+			<TextView android:id="@+id/us_tv_tit_user_id" android:text="user_id" android:padding="10dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textStyle="bold" />
+			<LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" >
+				<EditText android:id="@+id/us_et_user_id" android:inputType="text" android:maxLength="100" android:ems="101" android:padding="10dp" android:selectAllOnFocus="true" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+			</LinearLayout>
+		</TableRow>
+		<TableRow android:id="@+id/tbRw5" android:layout_width="match_parent" android:layout_height="wrap_content" >
+			<TextView android:id="@+id/us_tv_tit_password" android:text="password" android:padding="10dp" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+			<LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" >
+				<EditText android:id="@+id/us_et_password" android:inputType="text" android:maxLength="100" android:ems="101" android:padding="10dp" android:selectAllOnFocus="true" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+			</LinearLayout>
+		</TableRow>
+		<TableRow android:id="@+id/tbRw6" android:layout_width="match_parent" android:layout_height="wrap_content" >
+			<TextView android:id="@+id/us_tv_tit_first_name" android:text="first_name" android:padding="10dp" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+			<LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" >
+				<EditText android:id="@+id/us_et_first_name" android:inputType="text" android:maxLength="100" android:ems="101" android:padding="10dp" android:selectAllOnFocus="true" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+			</LinearLayout>
+		</TableRow>
+		<TableRow android:id="@+id/tbRw7" android:layout_width="match_parent" android:layout_height="wrap_content" >
+			<TextView android:id="@+id/us_tv_tit_last_name" android:text="last_name" android:padding="10dp" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+			<LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" >
+				<EditText android:id="@+id/us_et_last_name" android:inputType="text" android:maxLength="100" android:ems="101" android:padding="10dp" android:selectAllOnFocus="true" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+			</LinearLayout>
+		</TableRow>
+		<TableRow android:id="@+id/tbRw8" android:layout_width="match_parent" android:layout_height="wrap_content" >
+			<TextView android:id="@+id/us_tv_tit_email" android:text="email" android:padding="10dp" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+			<LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" >
+				<EditText android:id="@+id/us_et_email" android:inputType="text" android:maxLength="100" android:ems="101" android:padding="10dp" android:selectAllOnFocus="true" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+			</LinearLayout>
+		</TableRow>
+		<TableRow android:id="@+id/tbRw9" android:layout_width="match_parent" android:layout_height="wrap_content" >
+			<TextView android:id="@+id/us_tv_tit_phone" android:text="phone" android:padding="10dp" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+			<LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" >
+				<EditText android:id="@+id/us_et_phone" android:inputType="text" android:maxLength="100" android:ems="101" android:padding="10dp" android:selectAllOnFocus="true" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+			</LinearLayout>
+		</TableRow>
+		<TableRow android:id="@+id/tbRw10" android:layout_width="match_parent" android:layout_height="wrap_content" >
+			<TextView android:id="@+id/us_tv_tit_country_id" android:text="country_id" android:padding="10dp" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+			<LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" >
+				<EditText android:id="@+id/us_et_country_id" android:inputType="number" android:maxLength="5" android:ems="6" android:padding="10dp" android:selectAllOnFocus="true" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+			</LinearLayout>
+		</TableRow>
+		<TableRow android:id="@+id/tbRw11" android:layout_width="match_parent" android:layout_height="wrap_content" >
+			<TextView android:id="@+id/us_tv_tit_PS_name" android:text="PS_name" android:padding="10dp" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+			<LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" >
+				<EditText android:id="@+id/us_et_PS_name" android:inputType="text" android:maxLength="100" android:ems="101" android:padding="10dp" android:selectAllOnFocus="true" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+			</LinearLayout>
+		</TableRow>
+		<TableRow android:id="@+id/tbRw12" android:layout_width="match_parent" android:layout_height="wrap_content" >
+			<TextView android:id="@+id/us_tv_tit_PS_flag_base64" android:text="PS_flag_base64" android:padding="10dp" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+			<LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" >
+				<EditText android:id="@+id/us_et_PS_flag_base64" android:inputType="text" android:maxLength="100" android:ems="101" android:padding="10dp" android:selectAllOnFocus="true" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+			</LinearLayout>
+		</TableRow>
+		<TableRow android:id="@+id/tbRw13" android:layout_width="match_parent" android:layout_height="wrap_content" >
+			<TextView android:id="@+id/us_tv_tit_hash_code" android:text="hash_code" android:padding="10dp" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+			<LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" >
+				<EditText android:id="@+id/us_et_hash_code" android:inputType="text" android:maxLength="100" android:ems="101" android:padding="10dp" android:selectAllOnFocus="true" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+			</LinearLayout>
+		</TableRow>
+		<TableRow android:id="@+id/tbRw14" android:layout_width="match_parent" android:layout_height="wrap_content" >
+			<TextView android:id="@+id/us_tv_tit_avatar" android:text="avatar" android:padding="10dp" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+			<LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" >
+				<EditText android:id="@+id/us_et_avatar" android:inputType="text" android:maxLength="100" android:ems="101" android:padding="10dp" android:selectAllOnFocus="true" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+			</LinearLayout>
+		</TableRow>
+		<TableRow android:id="@+id/tbRw15" android:layout_width="match_parent" android:layout_height="wrap_content" >
+			<TextView android:id="@+id/us_tv_tit_isInactive" android:text="isInactive" android:padding="10dp" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+			<LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" >
+				<EditText android:id="@+id/us_et_isInactive" android:inputType="text" android:maxLength="1" android:ems="2" android:padding="10dp" android:selectAllOnFocus="true" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+			</LinearLayout>
+		</TableRow>
+		<TableRow android:id="@+id/tbRw16" android:layout_width="match_parent" android:layout_height="wrap_content" >
+			<TextView android:id="@+id/us_tv_tit_inactivated_date" android:text="inactivated_date" android:padding="10dp" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+			<LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" >
+				<EditText android:id="@+id/us_et_inactivated_date" android:inputType="text" android:maxLength="10" android:ems="11" android:padding="10dp" android:selectAllOnFocus="true" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+			</LinearLayout>
+		</TableRow>
+		<TableRow android:id="@+id/tbRw17" android:layout_width="match_parent" android:layout_height="wrap_content" >
+			<TextView android:id="@+id/us_tv_tit_inactivated_by" android:text="inactivated_by" android:padding="10dp" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+			<LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" >
+				<EditText android:id="@+id/us_et_inactivated_by" android:inputType="text" android:maxLength="100" android:ems="101" android:padding="10dp" android:selectAllOnFocus="true" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+			</LinearLayout>
+		</TableRow>
+		<TableRow android:id="@+id/tbRw18" android:layout_width="match_parent" android:layout_height="wrap_content" >
+			<TextView android:id="@+id/us_tv_tit_json" android:text="json" android:padding="10dp" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+			<LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" >
+				<EditText android:id="@+id/us_et_json" android:inputType="text" android:maxLength="100" android:ems="101" android:padding="10dp" android:selectAllOnFocus="true" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+			</LinearLayout>
+		</TableRow>
+
+        </TableLayout>
 
 			</LinearLayout>
+			
 		</ScrollView>
-
-	</LinearLayout>
+		
+    </LinearLayout>
 
 </LinearLayout>
