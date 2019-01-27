@@ -51,57 +51,62 @@ public class PS_countries_ADDRCD extends Activity {
 
 	////////////////////
 	// Proceso de mensajes del programa. (Sobretodo los de pantalla)
-	private final Handler mHandler = new Handler() {
+	private final Handler mHandler;
 
-		public void handleMessage( final Message msg ) {
+	public PS_countries_ADDRCD() {
 
-			boolean rc = false;
+		this.mHandler = new Handler() {
 
-			switch ( msg.what ) {
+			public void handleMessage( final Message msg ) {
 
-			case K.MSG_CARGANDO: 
-				Log.i(TAG,"MSG_CARGANDO()");
+				boolean rc = false;
 
-				new Thread( new Runnable() { public void run() {
-					cargarAdapters();
-					mHandler.sendEmptyMessage( K.MSG_FIN_ACCION_SOLICITADA );
-				} } ).start();
+				switch ( msg.what ) {
 
-				break;
+				case K.MSG_CARGANDO: 
+					Log.i(TAG,"MSG_CARGANDO()");
 
-			case K.MSG_CARGANDO_ESPERE: 
-				Log.i(TAG,"MSG_CARGANDO_ESPERE()");
-				mProgressDialog = ProgressDialog.show(mCtx,"Proceso de carga","Ejecutando...", true);
-				mHandler.sendEmptyMessage( K.MSG_CARGANDO );
-				break;
+					new Thread( new Runnable() { public void run() {
+						cargarAdapters();
+						mHandler.sendEmptyMessage( K.MSG_FIN_ACCION_SOLICITADA );
+					} } ).start();
 
-			case K.MSG_FIN_ACCION_SOLICITADA: 
-				Log.i(TAG,"MSG_FIN_ACCION_SOLICITADA()");
+					break;
 
-				cargarPantalla();
+				case K.MSG_CARGANDO_ESPERE: 
+					Log.i(TAG,"MSG_CARGANDO_ESPERE()");
+					mProgressDialog = ProgressDialog.show(mCtx,"Proceso de carga","Ejecutando...", true);
+					mHandler.sendEmptyMessage( K.MSG_CARGANDO );
+					break;
 
-				if ( mProgressDialog != null ) mProgressDialog.dismiss();
-				mProgressDialog = null;
-				break;
+				case K.MSG_FIN_ACCION_SOLICITADA: 
+					Log.i(TAG,"MSG_FIN_ACCION_SOLICITADA()");
 
-			case K.MSG_CANCELAR: 
-				Log.i(TAG,"MSG_CANCELAR()");
-				finish();
-				break;
+					cargarPantalla();
 
-			case K.MSG_ACEPTAR: 
-				Log.i(TAG,"MSG_ACEPTAR()");
-				StringBuilder msgs = new StringBuilder(); 
-				rc = pMSG_ACEPTAR(msgs);
-				Toast.makeText(mCtx, msgs.toString(), Toast.LENGTH_LONG).show();
-				if ( rc ) { finish(); }
-				break;
+					if ( mProgressDialog != null ) mProgressDialog.dismiss();
+					mProgressDialog = null;
+					break;
+
+				case K.MSG_CANCELAR: 
+					Log.i(TAG,"MSG_CANCELAR()");
+					finish();
+					break;
+
+				case K.MSG_ACEPTAR: 
+					Log.i(TAG,"MSG_ACEPTAR()");
+					StringBuilder msgs = new StringBuilder(); 
+					rc = pMSG_ACEPTAR(msgs);
+					Toast.makeText(mCtx, msgs.toString(), Toast.LENGTH_LONG).show();
+					if ( rc ) { finish(); }
+					break;
+
+				}
 
 			}
 
-		}
-
-	};
+		};
+	}
 
 	////////////////////
 	// Overrides
