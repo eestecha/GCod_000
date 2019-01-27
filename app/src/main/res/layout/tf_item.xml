@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/tf_tv_titulo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical|center_horizontal"
+                android:padding="20dp"
+                android:text="@string/indefinido"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp" >
+
+                <Button
+                    android:id="@+id/bt_cancelar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:text="@string/cancelar" />
+
+                <Button
+                    android:id="@+id/bt_aceptar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:text="@string/aceptar" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+		<ScrollView
+			android:layout_width="match_parent"
+			android:layout_height="match_parent">
+
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:orientation="vertical" >
+
+		        <TableLayout
+            android:id="@+id/tb_ly"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            
+		<TableRow android:id="@+id/tbRw0" android:layout_width="match_parent" android:layout_height="wrap_content" >
+			<TextView android:id="@+id/tf_tv_tit_id" android:text="id" android:padding="10dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textStyle="bold" />
+			<LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" >
+				<EditText android:id="@+id/tf_et_id" android:inputType="number" android:maxLength="5" android:ems="6" android:padding="10dp" android:selectAllOnFocus="true" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+			</LinearLayout>
+		</TableRow>
+		<TableRow android:id="@+id/tbRw1" android:layout_width="match_parent" android:layout_height="wrap_content" >
+			<TextView android:id="@+id/tf_tv_tit_name" android:text="name" android:padding="10dp" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+			<LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" >
+				<EditText android:id="@+id/tf_et_name" android:inputType="text" android:maxLength="100" android:ems="101" android:padding="10dp" android:selectAllOnFocus="true" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+			</LinearLayout>
+		</TableRow>
+		<TableRow android:id="@+id/tbRw2" android:layout_width="match_parent" android:layout_height="wrap_content" >
+			<TextView android:id="@+id/tf_tv_tit_json" android:text="json" android:padding="10dp" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+			<LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" >
+				<EditText android:id="@+id/tf_et_json" android:inputType="text" android:maxLength="100" android:ems="101" android:padding="10dp" android:selectAllOnFocus="true" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+			</LinearLayout>
+		</TableRow>
+
+        </TableLayout>
+
+			</LinearLayout>
+			
+		</ScrollView>
+		
+    </LinearLayout>
+
+</LinearLayout>
