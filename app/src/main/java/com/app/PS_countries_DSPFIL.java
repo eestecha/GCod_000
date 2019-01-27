@@ -30,20 +30,20 @@ import com.app.db._DBHelper;
 import com.app.util.K;
 
 public class PS_countries_DSPFIL extends AppCompatActivity {
-	
+
 	// Poniendo en el 'manifiest.xml' en esta Activity: android:configChanges="orientation"
 	//	se evita que rearranque la activity al rotar la pantalla.
-	// ( ..así no cascarán los dlg "espere..." al rotar la pantalla) 
+	// ( ..así no cascarán los dlg "espere..." al rotar la pantalla)
 
 	// 2016-07-10: PARA TENER TOOLBAR: se ha cambiado "extends Activity" por "extends AppCompatActivity"
 
-	private static final String TAG = PS_countries_DSPFIL.class.getSimpleName(); 
-	
+	private static final String TAG = PS_countries_DSPFIL.class.getSimpleName();
+
 	private _DBHelper mDBHelper;
 	private Context mCtx;
 	private View mViewLayout;
 	private ProgressDialog mProgressDialog = null;
-	
+
 	//////////
 	// Declarar controles de pantalla
 	private TextView		mTv_titulo;
@@ -55,99 +55,105 @@ public class PS_countries_DSPFIL extends AppCompatActivity {
 
 	////////////////////
 	// Proceso de mensajes del programa. (Sobretodo los de pantalla)
-	private final Handler mHandler = new Handler() {
+	private final Handler mHandler;
 
-		public void handleMessage( final Message msg ) {
+	public PS_countries_DSPFIL() {
 
-			//////////////////////////
-			// Por si el mensaje trae par�metro 'uno' --> position de la lista:
-			com.app.db.PS_countries_DAO.Registro reg = null;
-			if ( msg.arg1 != ListView.INVALID_POSITION ) {
-				if ( mLstAdpt!= null && ! mLstAdpt.isEmpty() ) {
-					Object o =  mLstAdpt.getItem(msg.arg1);
-					if ( "Registro".equals( o.getClass().getSimpleName() ) ) {
-						reg = (com.app.db.PS_countries_DAO.Registro)o;
+		this.mHandler = new Handler() {
+
+			public void handleMessage( final Message msg ) {
+
+				//////////////////////////
+				// Por si el mensaje trae par�metro 'uno' --> position de la lista:
+				com.app.db.PS_countries_DAO.Registro reg = null;
+				if ( msg.arg1 != ListView.INVALID_POSITION ) {
+					if ( mLstAdpt!= null && ! mLstAdpt.isEmpty() ) {
+						Object o =  mLstAdpt.getItem(msg.arg1);
+						if ( "Registro".equals( o.getClass().getSimpleName() ) ) {
+							reg = (com.app.db.PS_countries_DAO.Registro)o;
+						}
 					}
 				}
-			}
-			//////////////////////////
+				//////////////////////////
 
-			switch ( msg.what ) {
+				switch ( msg.what ) {
 
-			case K.MSG_CARGANDO: 
-				Log.i(TAG,"MSG_CARGANDO()");
+					case K.MSG_CARGANDO:
+						Log.i(TAG,"MSG_CARGANDO()");
 
-//				new Thread( new Runnable() { public void run() {
-					cargarAdapters();
-					mHandler.sendEmptyMessage( K.MSG_FIN_ACCION_SOLICITADA );
-//				} } ).start();
-				
-				break;
+						//				new Thread( new Runnable() { public void run() {
+						cargarAdapters();
+						mHandler.sendEmptyMessage( K.MSG_FIN_ACCION_SOLICITADA );
+						//				} } ).start();
 
-			case K.MSG_CARGANDO_ESPERE: 
-				Log.i(TAG,"MSG_CARGANDO_ESPERE()");
-				mProgressDialog = ProgressDialog.show(mCtx,"Proceso de carga","Ejecutando...", true);
-				mHandler.sendEmptyMessage( K.MSG_CARGANDO );
-				break;
+						break;
 
-			case K.MSG_FIN_ACCION_SOLICITADA: 
-				Log.i(TAG,"MSG_FIN_ACCION_SOLICITADA()");
+					case K.MSG_CARGANDO_ESPERE:
+						Log.i(TAG,"MSG_CARGANDO_ESPERE()");
+						mProgressDialog = ProgressDialog.show(mCtx,"Proceso de carga","Ejecutando...", true);
+						mHandler.sendEmptyMessage( K.MSG_CARGANDO );
+						break;
 
-				cargarPantalla();
+					case K.MSG_FIN_ACCION_SOLICITADA:
+						Log.i(TAG,"MSG_FIN_ACCION_SOLICITADA()");
 
-				if ( mProgressDialog != null ) mProgressDialog.dismiss();
-				mProgressDialog = null;
-				break;
+						cargarPantalla();
 
-			case K.MSG_MNU_REFRESCAR: 
-				Log.i(TAG,"MSG_MNU_REFRESCAR()");
-				mHandler.sendEmptyMessage( K.MSG_CARGANDO_ESPERE );
-				break;
+						if ( mProgressDialog != null ) mProgressDialog.dismiss();
+						mProgressDialog = null;
+						break;
 
-			case K.MSG_MNU_NUEVO: 
-				Log.i(TAG,"MSG_MNU_NUEVO()");
-				K.dialogoSiNo(mCtx,mHandler,"¿Añadir nuevo?",mHandler.obtainMessage(K.MSG_MNU_NUEVO_OK, msg.arg1, msg.arg2),null);
-				break;
+					case K.MSG_MNU_REFRESCAR:
+						Log.i(TAG,"MSG_MNU_REFRESCAR()");
+						mHandler.sendEmptyMessage( K.MSG_CARGANDO_ESPERE );
+						break;
 
-			case K.MSG_MNU_EDITAR: 
-				Log.i(TAG,"MSG_MNU_EDITAR() --> " + msg.arg1);
-				K.dialogoSiNo(mCtx,mHandler,"¿Modificar datos?",mHandler.obtainMessage(K.MSG_MNU_EDITAR_OK, msg.arg1, msg.arg2),null);
-				break;
+					case K.MSG_MNU_NUEVO:
+						Log.i(TAG,"MSG_MNU_NUEVO()");
+						K.dialogoSiNo(mCtx,mHandler,"¿Añadir nuevo?",mHandler.obtainMessage(K.MSG_MNU_NUEVO_OK, msg.arg1, msg.arg2),null);
+						break;
 
-			case K.MSG_MNU_SUPRIMIR: 
-				Log.i(TAG,"MSG_MNU_SUPRIMIR() --> " + msg.arg1);
-				K.dialogoSiNo(mCtx,mHandler,"¿Suprimir datos?",mHandler.obtainMessage(K.MSG_MNU_SUPRIMIR_OK, msg.arg1, msg.arg2),null);
-				break;
+					case K.MSG_MNU_EDITAR:
+						Log.i(TAG,"MSG_MNU_EDITAR() --> " + msg.arg1);
+						K.dialogoSiNo(mCtx,mHandler,"¿Modificar datos?",mHandler.obtainMessage(K.MSG_MNU_EDITAR_OK, msg.arg1, msg.arg2),null);
+						break;
 
-			case K.MSG_MNU_NUEVO_OK: 
-				Log.i(TAG,"MSG_MNU_NUEVO()");
-				startActivity( new Intent(mCtx,PS_countries_ADDRCD.class) );
-				break;
+					case K.MSG_MNU_SUPRIMIR:
+						Log.i(TAG,"MSG_MNU_SUPRIMIR() --> " + msg.arg1);
+						K.dialogoSiNo(mCtx,mHandler,"¿Suprimir datos?",mHandler.obtainMessage(K.MSG_MNU_SUPRIMIR_OK, msg.arg1, msg.arg2),null);
+						break;
 
-			case K.MSG_MNU_EDITAR_OK: 
-				Log.i(TAG,"MSG_MNU_EDITAR_OK() --> " + msg.arg1);
-				if ( reg != null ) {
-					Intent intent = new Intent(mCtx,PS_countries_EDTRCD.class);
-					intent.putExtra ( "ps_reg", reg );
-					startActivity( intent );
+					case K.MSG_MNU_NUEVO_OK:
+						Log.i(TAG,"MSG_MNU_NUEVO()");
+						startActivity( new Intent(mCtx,PS_countries_ADDRCD.class) );
+						break;
+
+					case K.MSG_MNU_EDITAR_OK:
+						Log.i(TAG,"MSG_MNU_EDITAR_OK() --> " + msg.arg1);
+						if ( reg != null ) {
+							Intent intent = new Intent(mCtx,PS_countries_EDTRCD.class);
+							intent.putExtra ( "ps_reg", reg );
+							startActivity( intent );
+						}
+						break;
+
+					case K.MSG_MNU_SUPRIMIR_OK:
+						Log.i(TAG,"MSG_MNU_SUPRIMIR_OK() --> " + msg.arg1);
+						if ( reg != null ) {
+							mDBHelper.ps_countries.mRegistro.clean();
+							mDBHelper.ps_countries.mRegistro.copyFrom(reg);
+							mDBHelper.ps_countries.dltObj(mDBHelper.mDB);
+							mHandler.sendEmptyMessage( K.MSG_CARGANDO_ESPERE );
+						}
+						break;
+
 				}
-				break;
-
-			case K.MSG_MNU_SUPRIMIR_OK: 
-				Log.i(TAG,"MSG_MNU_SUPRIMIR_OK() --> " + msg.arg1);
-				if ( reg != null ) {
-					mDBHelper.ps_countries.mRegistro.clean();
-					mDBHelper.ps_countries.mRegistro.copyFrom(reg);
-					mDBHelper.ps_countries.dltObj(mDBHelper.mDB);
-					mHandler.sendEmptyMessage( K.MSG_CARGANDO_ESPERE );
-				}
-				break;
 
 			}
 
-		}
+		};
+	}
 
-	};
 
 	////////////////////
 	// Overrides
@@ -157,7 +163,7 @@ public class PS_countries_DSPFIL extends AppCompatActivity {
 		Log.i(TAG,"onCreate()");
 		super.onCreate(savedInstanceState);
 		//setContentView(R.layout.ps_list);
-		LayoutInflater inflater = (LayoutInflater) this.getSystemService( Context.LAYOUT_INFLATER_SERVICE ); 
+		LayoutInflater inflater = (LayoutInflater) this.getSystemService( Context.LAYOUT_INFLATER_SERVICE );
 //		mViewLayout = inflater.inflate(R.layout.ps_list, null, false);
 		mViewLayout = inflater.inflate(R.layout.ps_list_grid, null, false);
 		setContentView(mViewLayout);
@@ -177,17 +183,17 @@ public class PS_countries_DSPFIL extends AppCompatActivity {
 		registerForContextMenu(mGv_lista);
 
 	}
-	
+
 	@Override
 	protected void onPause() {
 		Log.i(TAG,"onPause()"); if (mDBHelper != null) { Log.i(TAG,"CLOSE DB"); mDBHelper.close(); }
 		super.onPause();
 	}
-	
+
 	@Override
 	protected void onResume() {
 		Log.i(TAG,"onResume()"); if ( ! mDBHelper.mDB.isOpen() ) { Log.i(TAG,"OPEN DB"); mDBHelper.mDB = mDBHelper.getWritableDatabase(); }
-		
+
 		if ( ! K.IS_PANTALLAS_GIRAR ) { setRequestedOrientation( K.DEFAULT_ORIENTATION ); }
 
 		mHandler.sendEmptyMessage( K.MSG_CARGANDO_ESPERE );
@@ -224,7 +230,7 @@ public class PS_countries_DSPFIL extends AppCompatActivity {
 			case R.id.ps_mnu_refrescar: mHandler.sendEmptyMessage( K.MSG_MNU_REFRESCAR ); return true;
 
 			case R.id.ps_mnu_nuevo: mHandler.sendEmptyMessage( K.MSG_MNU_NUEVO ); return true;
-		
+
 			default: break;
 
 		}
@@ -250,12 +256,12 @@ public class PS_countries_DSPFIL extends AppCompatActivity {
 
 	    switch (item.getItemId()) {
 
-			case R.id.ps_mnu_editar: 
+			case R.id.ps_mnu_editar:
 //				mHandler.sendMessage( Message.obtain(mHandler, K.MSG_MNU_EDITAR, info.position, 0 ) );
 				mHandler.sendMessage( Message.obtain(mHandler, K.MSG_MNU_EDITAR_OK, info.position, 0 ) );
 				return true;
 
-			case R.id.ps_mnu_suprimir: 
+			case R.id.ps_mnu_suprimir:
 				mHandler.sendMessage( Message.obtain(mHandler, K.MSG_MNU_SUPRIMIR, info.position, 0 ) );
 				return true;
 
@@ -269,7 +275,7 @@ public class PS_countries_DSPFIL extends AppCompatActivity {
 
 	////////////////////
 	// Funciones internas
-	
+
 	private void cargarAdapters() {
 		Log.i(TAG,"cargarAdapters()"); if ( ! mDBHelper.mDB.isOpen() ) { Log.w(TAG,"OPEN DB (...estaba cerrada!!)"); mDBHelper.mDB = mDBHelper.getWritableDatabase(); }
 
@@ -291,16 +297,16 @@ public class PS_countries_DSPFIL extends AppCompatActivity {
 		Log.i(TAG,"cargarPantalla()");
 
 		mTv_titulo.setText( "Países" );
-		
+
 //		if ( mLstAdpt != null) mLv_lista.setAdapter(mLstAdpt);
 		if ( mLstAdpt != null) mGv_lista.setAdapter(mLstAdpt);
 
 //		K.LeftToRight_Animation(mLv_lista,500);
 		K.LeftToRight_Animation(mGv_lista,500);
 		K.LeftToRight_Animation(mViewLayout,350);
-		
+
 	}
 	////////////////////
-	
+
 	////////////////////
 }

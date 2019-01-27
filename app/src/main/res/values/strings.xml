@@ -7,4 +7,9 @@
     <string name="aceptar">Aceptar</string>
     <string name="indefinido">&#8230;</string>
 
+    <string name="local_service_label">Servicio para GPS</string>
+    <string name="local_service_started">ServicioGPS iniciado.</string>
+    <string name="local_service_stopped">ServicoGPS parado.</string>
+    <string name="local_service_notif_action">Ver su posición de referencia.</string>
+
 </resources>

@@ -9,23 +9,22 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET"/>
 
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <!--<uses-permission android:name="android.permission.WRITE_MEDIA_STORAGE"/>-->
 
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <!--<uses-permission android:name="android.permission.STATUS_BAR" />-->
 
     <!-- Para BroadcastReceiver del teléfono -->
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
     <!-- Por si se necesitara, para MIRAR EN EL REGISTRO DE LLAMADAS mediante Content Provider (Ver fuente del BroadcastReceiver) -->
     <!-- <uses-permission android:name="android.permission.CALL_PHONE" />  -->
     <!-- <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" /> -->
 
     <!-- Para pantalla siempre encendida: mWakeLock.acquire() / mWakeLock.release(); -->
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
 
     <application
         android:allowBackup="true"
@@ -60,6 +59,25 @@
         <activity
             android:name=".US_Users_EDTRCD"
             android:configChanges="orientation" />
+
+        <receiver android:name=".util.ReceiverTelefono">
+            <intent-filter>
+                <action android:name="android.intent.action.PHONE_STATE"/>
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name=".util.ReceiverDeAutoArranque">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"></action>
+            </intent-filter>
+        </receiver>
+<!--
+        <service android:label="@string/local_service_label"
+            android:description="@string/local_service_label"
+            android:icon="@drawable/ic_cochecito"
+            android:name="com.app.services.ServicioDeLocalizacion">
+        </service>
+-->
 
     </application>
 
