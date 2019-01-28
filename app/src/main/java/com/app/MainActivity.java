@@ -64,17 +64,29 @@ public class MainActivity extends AppCompatActivity {
                     }
                 );
 
-        ((Button) findViewById(R.id.btPs))
-                .setOnClickListener(
-                        new View.OnClickListener() {
-                            public void onClick(View v) {
+		((Button) findViewById(R.id.btPs))
+				.setOnClickListener(
+						new View.OnClickListener() {
+							public void onClick(View v) {
 //                                Toast.makeText(mCtx, "Button PS Clicked", Toast.LENGTH_LONG).show();
-                                Intent intent = new Intent(mCtx,PS_countries_DSPFIL.class);
-                                //	intent.putExtra ( "ps_reg", reg );
-                                startActivity( intent );
-                            }
-                        }
-                );
+								Intent intent = new Intent(mCtx,PS_countries_DSPFIL.class);
+								//	intent.putExtra ( "ps_reg", reg );
+								startActivity( intent );
+							}
+						}
+				);
+
+		((Button) findViewById(R.id.btTf))
+				.setOnClickListener(
+						new View.OnClickListener() {
+							public void onClick(View v) {
+//                                Toast.makeText(mCtx, "Button PS Clicked", Toast.LENGTH_LONG).show();
+								Intent intent = new Intent(mCtx,TF_phone_DSPFIL.class);
+								//	intent.putExtra ( "ps_reg", reg );
+								startActivity( intent );
+							}
+						}
+				);
 
         ((Button) findViewById(R.id.btLoadPS))
                 .setOnClickListener(

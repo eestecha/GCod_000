@@ -178,7 +178,7 @@ public class TF_phone_ADDRCD extends Activity {
 
 	private void cargarPantalla() {
 		Log.i(TAG,"cargarPantalla()");
-		mTv_titulo.setText( "Agregar phone" );
+		mTv_titulo.setText( "Agregar llamada" );
 		K.LeftToRight_Animation(mViewLayout,350);
 	}
 

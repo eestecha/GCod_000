@@ -1,6 +1,10 @@
 package com.app.adapter;
 
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Formatter;
 import java.util.List;
+import java.util.Locale;
 
 import android.content.Context;
 import android.os.Handler;
@@ -39,11 +43,20 @@ public class TF_Adapter extends BaseAdapter {
 			convertView = mInflater.inflate(R.layout.tf_list_item, parent, false); 
 
 		// Instancia controles de pantalla y carga sus valores:
-		((TextView) convertView.findViewById( R.id.tf_tv_id )).setText(  mItems.get(position).id );	// id
+//		((TextView) convertView.findViewById( R.id.tf_tv_id )).setText(  mItems.get(position).id );	// id
 		((TextView) convertView.findViewById( R.id.tf_tv_name )).setText(  mItems.get(position).name );	// name
-		((TextView) convertView.findViewById( R.id.tf_tv_json )).setText(  mItems.get(position).json );	// json
+//		((TextView) convertView.findViewById( R.id.tf_tv_json )).setText(  mItems.get(position).json );	// json
 
-		
+		StringBuilder id = new StringBuilder();
+		try {
+			Calendar c = Calendar.getInstance();
+			Formatter formatter = new Formatter(id, Locale.US);
+			c.setTimeInMillis( Long.parseLong( mItems.get(position).id ) );
+			formatter.format("%02d:%02d", c.get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE));
+		} catch (NumberFormatException e) {;}
+
+		((TextView) convertView.findViewById( R.id.tf_tv_id )).setText( id.toString()  );
+
 		// Eventos de acciones:
 		
 		

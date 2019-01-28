@@ -250,7 +250,7 @@ public class TF_phone_DSPFIL extends AppCompatActivity {
 	    switch (item.getItemId()) {
 
 			case R.id.tf_mnu_editar: 
-				mHandler.sendMessage( Message.obtain(mHandler, K.MSG_MNU_EDITAR, info.position, 0 ) );
+				mHandler.sendMessage( Message.obtain(mHandler, K.MSG_MNU_EDITAR_OK, info.position, 0 ) );
 				return true;
 
 			case R.id.tf_mnu_suprimir: 
@@ -288,7 +288,7 @@ public class TF_phone_DSPFIL extends AppCompatActivity {
 	private void cargarPantalla() {
 		Log.i(TAG,"cargarPantalla()");
 
-		mTv_titulo.setText( "phone" );
+		mTv_titulo.setText( "Llamadas" );
 		
 		if ( mLstAdpt != null) mLv_lista.setAdapter(mLstAdpt);
 

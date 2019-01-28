@@ -9,7 +9,7 @@ import android.util.Log;
 import com.app.MainActivity;
 import com.app.db._DBHelper;
 
-import java.util.Date;
+import java.util.Calendar;
 
 public class ReceiverTelefono extends BroadcastReceiver {
 
@@ -107,16 +107,17 @@ public class ReceiverTelefono extends BroadcastReceiver {
 		if (!mIsHaSonado && isAtendida) {
 			frase += "llamada saliente";
 		}
-
-		Long timeStamp = new Date().getTime();
+		Calendar c = Calendar.getInstance();
 
 		mDBHelper = new _DBHelper(mCtx);
 		if ( ! mDBHelper.mDB.isOpen() ) { Log.w(TAG,"OPEN DB (...estaba cerrada!!)"); mDBHelper.mDB = mDBHelper.getWritableDatabase(); }
-		mDBHelper.tf_phone.mRegistro.id = "" + timeStamp;
+		mDBHelper.tf_phone.mRegistro.id = "" + c.getTimeInMillis();
 		mDBHelper.tf_phone.mRegistro.name = frase;
 		mDBHelper.tf_phone.mRegistro.json = "{}";
 		mDBHelper.tf_phone.crtObj(mDBHelper.mDB);
 		if (mDBHelper != null) { Log.i(TAG,"CLOSE DB"); mDBHelper.close(); }
+
+		Log.i(TAG,"*** REGISTRO en BD: " + mDBHelper.tf_phone.mRegistro.id + " " + frase);
 
 		Intent intent = new Intent(mCtx, MainActivity.class);
 		intent.putExtra ( "phone_receiver", frase  );

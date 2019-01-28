@@ -195,7 +195,7 @@ public class TF_phone_EDTRCD extends Activity {
 
 	private void cargarPantalla() {
 		Log.i(TAG,"cargarPantalla()");
-		mTv_titulo.setText( "Editar phone" );
+		mTv_titulo.setText( "Editar llamada" );
 		K.LeftToRight_Animation(mViewLayout,350);
 
 		// Mover campos desde la base de datos:

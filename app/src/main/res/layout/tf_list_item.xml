@@ -3,10 +3,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal" >
-    
-    
-	<TextView android:id="@+id/tf_tv_id" android:ems="6" android:padding="10dp" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+
+
+	<TextView
+		android:id="@+id/tf_tv_id"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:ems="4"
+		android:padding="10dp" />
 	<TextView android:id="@+id/tf_tv_name" android:ems="101" android:padding="10dp" android:layout_width="wrap_content" android:layout_height="wrap_content" />
-	<TextView android:id="@+id/tf_tv_json" android:ems="101" android:padding="10dp" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+
+	<TextView
+		android:id="@+id/tf_tv_json"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:ems="101"
+		android:padding="10dp"
+		android:visibility="gone" />
 
 </LinearLayout>
