@@ -3,15 +3,21 @@ package com.app.util;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 
+import com.app.MainActivity;
+import com.app.db._DBHelper;
+
+import java.util.Date;
+
 public class ReceiverTelefono extends BroadcastReceiver {
+
 
 	private String TAG = getClass().getSimpleName();
 
 	private Context mCtx;
+	private _DBHelper mDBHelper;
 
 	private static String mNumero = "?";
 	private static boolean mIsAtendida = false;
@@ -89,6 +95,38 @@ public class ReceiverTelefono extends BroadcastReceiver {
 
 	private void persistir( String numero, boolean isAtendida, boolean mIsHaSonado) {
 		Log.i(TAG,"persistir() >>>>>>");
+
+		String frase = numero + " ";
+
+		if (mIsHaSonado && isAtendida) {
+			frase += "llamada atendida";
+		}
+		if (mIsHaSonado && !isAtendida) {
+			frase += "llamada perdida";
+		}
+		if (!mIsHaSonado && isAtendida) {
+			frase += "llamada saliente";
+		}
+
+		Long timeStamp = new Date().getTime();
+
+		mDBHelper = new _DBHelper(mCtx);
+		if ( ! mDBHelper.mDB.isOpen() ) { Log.w(TAG,"OPEN DB (...estaba cerrada!!)"); mDBHelper.mDB = mDBHelper.getWritableDatabase(); }
+		mDBHelper.tf_phone.mRegistro.id = "" + timeStamp;
+		mDBHelper.tf_phone.mRegistro.name = frase;
+		mDBHelper.tf_phone.mRegistro.json = "{}";
+		mDBHelper.tf_phone.crtObj(mDBHelper.mDB);
+		if (mDBHelper != null) { Log.i(TAG,"CLOSE DB"); mDBHelper.close(); }
+
+		Intent intent = new Intent(mCtx, MainActivity.class);
+		intent.putExtra ( "phone_receiver", frase  );
+		// intent.setClassName("com.test", "com.test.MainActivity");
+		intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+		mCtx.startActivity(intent);
+
+
+
+
 /*
 
 		_DBHelper dbHelper = new _DBHelper(mCtx);

@@ -14,7 +14,7 @@ public class _DBHelper extends SQLiteOpenHelper {
 //		//super.onDowngrade(db, oldVersion, newVersion);
 //	}
 
-	private static final String TAG = _DBHelper.class.getSimpleName(); 
+	private static final String TAG = _DBHelper.class.getSimpleName();
 
 	public static final String DATABASE_NAME = "eed_db";
 	private static final int DATABASE_VERSION = 1;
@@ -25,6 +25,7 @@ public class _DBHelper extends SQLiteOpenHelper {
 	// ENTIDADES CONTROLADAS
 	public US_Users_DAO	us_Users = null;
 	public PS_countries_DAO	ps_countries = null;
+	public TF_phone_DAO	tf_phone = null;
 
 	// /////////////////////////////////////////////////
 	// /////////////////////////////////////////////////
@@ -37,10 +38,11 @@ public class _DBHelper extends SQLiteOpenHelper {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);
 		mDB = getWritableDatabase();
 		Log.i(TAG,"constructor _DBHelper()");
-		
+
 		// Construtor de cada entidad controlada:
 		if ( us_Users == null ) us_Users = new US_Users_DAO();
 		if ( ps_countries == null ) ps_countries = new PS_countries_DAO();
+		if ( tf_phone == null ) tf_phone = new TF_phone_DAO();
 
 	}
 
@@ -51,10 +53,12 @@ public class _DBHelper extends SQLiteOpenHelper {
 		// Construtor de cada entidad controlada:
 		if ( us_Users == null ) us_Users = new US_Users_DAO();
 		if ( ps_countries == null ) ps_countries = new PS_countries_DAO();
+		if ( tf_phone == null ) tf_phone = new TF_phone_DAO();
 
 		// Create tables;
 		us_Users.create(db);
 		ps_countries.create(db);
+		tf_phone.create(db);
 
 	}
 
@@ -65,14 +69,17 @@ public class _DBHelper extends SQLiteOpenHelper {
 		// Construtor de cada entidad controlada:
 		if ( us_Users == null ) us_Users = new US_Users_DAO();
 		if ( ps_countries == null ) ps_countries = new PS_countries_DAO();
+		if ( tf_phone == null ) tf_phone = new TF_phone_DAO();
 
 		// Drop tables;
 		us_Users.dropTb(db);
 		ps_countries.dropTb(db);
+		tf_phone.dropTb(db);
 
 		// Create tables;
 		us_Users.create(db);
 		ps_countries.create(db);
+		tf_phone.create(db);
 
 	}
 }
