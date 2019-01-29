@@ -1,4 +1,4 @@
-package com.app.util;
+package com.app.receivers;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -96,13 +96,13 @@ public class ReceiverTelefono extends BroadcastReceiver {
 	private void persistir( String numero, boolean isAtendida, boolean mIsHaSonado) {
 		Log.i(TAG,"persistir() >>>>>>");
 
-		String frase = numero + " ";
+		String frase = "";
 
 		if (mIsHaSonado && isAtendida) {
-			frase += "llamada atendida";
+			frase += numero + " llamada atendida";
 		}
 		if (mIsHaSonado && !isAtendida) {
-			frase += "llamada perdida";
+			frase += numero + " llamada perdida";
 		}
 		if (!mIsHaSonado && isAtendida) {
 			frase += "llamada saliente";
